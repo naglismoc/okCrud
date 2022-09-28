@@ -34,7 +34,6 @@ class ShoeController
         $shoe->size = $_POST['size'];
         $shoe->material = $_POST['material'];
         $shoe->update();
-
     }
     
     public static function destroy()

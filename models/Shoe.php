@@ -58,11 +58,11 @@ class Shoe
         return $shoe;
     }
 
-    public static function update()
+    public function update()
     {
         $db = new Db();
         $stmt = $db->conn->prepare("UPDATE `shoes` SET `manufacturer`=?,`color`=?,`size`=?,`material`=? WHERE `id` = ?");
-        $stmt->bind_param("ssisi", $_POST['manufacturer'], $_POST['color'], $_POST['size'], $_POST['material'], $_POST['id']);
+        $stmt->bind_param("ssisi", $this->manufacturer, $this->color, $this->size, $this->material, $this->id);
         $stmt->execute();
         $stmt->close();
         $db->conn->close();

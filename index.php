@@ -15,18 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $shoe = ShoeController::show();
         $edit = true;
     }
+    
     if (isset($_POST['update'])) {
         echo "bandau atnaujinti irasa";
         $shoe = ShoeController::update();
         header("Location: ./index.php");
         die;
     }
+
     if (isset($_POST['destroy'])) {
-        $shoe = ShoeController::destroy();
+        ShoeController::destroy();
         header("Location: ./index.php");
         die;
     }
-
 }
 
 $shoes = ShoeController::index();
